@@ -18,6 +18,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -60,7 +61,7 @@ public class TaskTests  extends BatchTestBase {
         String STANDARD_CONSOLE_OUTPUT_FILENAME = "stdout.txt";
         String BLOB_FILE_NAME = "test.txt";
         String taskId = "mytask";
-        File temp = File.createTempFile("tempFile", ".tmp");
+        File temp = Files.createTempFile("tempFile", ".tmp").toFile();
         BufferedWriter bw = new BufferedWriter(new FileWriter(temp));
         bw.write("This is an example");
         bw.close();
